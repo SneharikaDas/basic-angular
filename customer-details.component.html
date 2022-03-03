@@ -1,0 +1,19 @@
+
+<form  [formGroup]="detailsForm"(ngSubmit)="customerListService.isEdit? updateDetails() : submitDetails()">
+  <input type="email"placeholder="Enter Email"formControlName="useremail" />
+  <br /> 
+  <!-- <span *ngIf="detailsForm.invalid && detailsForm.touched" style="color: red;" >Please enter a Valid input</span><br /> -->
+  <br />
+  <input type="input" minlength="3" required formControlName="username" placeholder="Enter Name" />
+  <br />
+  <!-- <span *ngIf="username.invalid && username.touched" style="color: red;" >Please enter a Valid input</span><br /> -->
+  <br />
+  <input type="input"  minlength="1" required formControlName="userage" placeholder="Enter Age"/>
+  <br />
+  <!-- <span *ngIf="userage.invalid && userage.touched" style="color: red;" >Please enter a Valid input</span><br /> -->
+  <br />
+  <button *ngIf="!customerListService.isEdit" [disabled]="detailsForm.invalid">Submit Details</button>
+  <button *ngIf="customerListService.isEdit" [disabled]="detailsForm.invalid">Update Details</button>
+</form>
+
+<!-- <button (click)="patchValue()">Patch Value</button> -->
